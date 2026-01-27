@@ -677,59 +677,7 @@
 
         <!-- App Preview -->
         <div class="app-preview">
-            <div class="app-window">
-                <div class="window-header">
-                    <div class="window-dot red"></div>
-                    <div class="window-dot yellow"></div>
-                    <div class="window-dot green"></div>
-                </div>
-                <div class="window-content">
-                    <div class="sidebar">
-                        <div class="sidebar-section">
-                            <div class="sidebar-title">Workspace</div>
-                            <div class="sidebar-item active">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"></circle><line x1="1.05" y1="12" x2="7" y2="12"></line><line x1="17.01" y1="12" x2="22.96" y2="12"></line></svg>
-                                Working Changes
-                            </div>
-                            <div class="sidebar-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-                                Staged Files
-                            </div>
-                        </div>
-                        <div class="sidebar-section">
-                            <div class="sidebar-title">Branches</div>
-                            <div class="sidebar-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="3" x2="6" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg>
-                                main
-                            </div>
-                            <div class="sidebar-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="3" x2="6" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg>
-                                feature/diff-engine
-                            </div>
-                        </div>
-                    </div>
-                    <div class="main-content">
-                        <div class="diff-header">
-                            <span class="diff-file">src/components/DiffViewer.swift</span>
-                            <div class="diff-stats">
-                                <span class="add">+42</span>
-                                <span class="remove">-12</span>
-                            </div>
-                        </div>
-                        <div class="diff-line context"><span class="line-num">14</span> import Foundation</div>
-                        <div class="diff-line context"><span class="line-num">15</span></div>
-                        <div class="diff-line remove"><span class="line-num">16</span> func renderDiff(old: String, new: String) {</div>
-                        <div class="diff-line add"><span class="line-num">16</span> func renderDiff(old: String, new: String, mode: DiffMode) {</div>
-                        <div class="diff-line add"><span class="line-num">17</span>     let engine = DiffEngine(mode: mode)</div>
-                        <div class="diff-line add"><span class="line-num">18</span>     let result = engine.compute(old, new)</div>
-                        <div class="diff-line context"><span class="line-num">19</span></div>
-                        <div class="diff-line context"><span class="line-num">20</span>     // Apply word-level highlighting</div>
-                        <div class="diff-line add"><span class="line-num">21</span>     result.hunks.forEach { hunk in</div>
-                        <div class="diff-line add"><span class="line-num">22</span>         highlightTokens(hunk.changes)</div>
-                        <div class="diff-line add"><span class="line-num">23</span>     }</div>
-                    </div>
-                </div>
-            </div>
+            <img src="images/screenshot-changes.png" alt="GitFlow - Changes View with Diff Visualization" style="width: 100%; border-radius: 12px; box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.5);">
         </div>
     </section>
 
@@ -864,33 +812,7 @@
                 </ul>
             </div>
             <div class="app-preview" style="margin-top: 0;">
-                <div class="app-window">
-                    <div class="window-header">
-                        <div class="window-dot red"></div>
-                        <div class="window-dot yellow"></div>
-                        <div class="window-dot green"></div>
-                    </div>
-                    <div style="padding: 1.5rem;">
-                        <div class="diff-header">
-                            <span class="diff-file">api/handlers/auth.go</span>
-                            <div class="diff-stats">
-                                <span class="add">+18</span>
-                                <span class="remove">-3</span>
-                            </div>
-                        </div>
-                        <div class="diff-line context"><span class="line-num">45</span> func ValidateToken(token string) bool {</div>
-                        <div class="diff-line remove"><span class="line-num">46</span>     return token != ""</div>
-                        <div class="diff-line add"><span class="line-num">46</span>     if token == "" {</div>
-                        <div class="diff-line add"><span class="line-num">47</span>         return false</div>
-                        <div class="diff-line add"><span class="line-num">48</span>     }</div>
-                        <div class="diff-line add"><span class="line-num">49</span>     claims, err := jwt.Parse(token)</div>
-                        <div class="diff-line add"><span class="line-num">50</span>     if err != nil {</div>
-                        <div class="diff-line add"><span class="line-num">51</span>         return false</div>
-                        <div class="diff-line add"><span class="line-num">52</span>     }</div>
-                        <div class="diff-line add"><span class="line-num">53</span>     return claims.Valid()</div>
-                        <div class="diff-line context"><span class="line-num">54</span> }</div>
-                    </div>
-                </div>
+                <img src="images/screenshot-history.png" alt="GitFlow - History View" style="width: 100%; border-radius: 12px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);">
             </div>
         </div>
     </section>
