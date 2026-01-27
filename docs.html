@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - GitFlow</title>
+    <meta name="description" content="GitFlow documentation - Learn how to use the free, professional-grade Git GUI for macOS.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-primary: #0a0a0b;
+            --bg-secondary: #111113;
+            --bg-tertiary: #18181b;
+            --bg-card: #1c1c1f;
+            --border-color: #27272a;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --accent: #22c55e;
+            --accent-hover: #16a34a;
+            --accent-glow: rgba(34, 197, 94, 0.15);
+            --gradient-start: #22c55e;
+            --gradient-end: #06b6d4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(10, 10, 11, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-primary);
+        }
+
+        .github-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary) !important;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .github-btn:hover {
+            background: var(--bg-card);
+            border-color: var(--text-muted);
+        }
+
+        /* Main Layout */
+        .docs-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 80px;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .docs-sidebar {
+            position: sticky;
+            top: 80px;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+            padding: 2rem 1.5rem;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+        }
+
+        .sidebar-nav a {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            margin-bottom: 0.25rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .sidebar-nav a:hover {
+            color: var(--text-primary);
+            background: var(--bg-tertiary);
+        }
+
+        .sidebar-nav a.active {
+            color: var(--accent);
+            background: var(--accent-glow);
+        }
+
+        /* Content */
+        .docs-content {
+            padding: 3rem 4rem;
+            max-width: 900px;
+        }
+
+        .docs-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .docs-content h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .docs-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .docs-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .docs-content ul, .docs-content ol {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .docs-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .docs-content code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875em;
+            background: var(--bg-tertiary);
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            color: var(--accent);
+        }
+
+        .docs-content pre {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .docs-content pre code {
+            background: none;
+            padding: 0;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .info-box {
+            background: var(--accent-glow);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-box p {
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .warning-box {
+            background: rgba(234, 179, 8, 0.1);
+            border: 1px solid rgba(234, 179, 8, 0.3);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .warning-box p {
+            color: #fbbf24;
+            margin: 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .feature-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+        }
+
+        .feature-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .kbd {
+            display: inline-block;
+            padding: 0.15em 0.4em;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8em;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-shadow: 0 2px 0 var(--border-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .docs-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .docs-sidebar {
+                display: none;
+            }
+
+            .docs-content {
+                padding: 2rem;
+            }
+
+            .nav-links a:not(.github-btn) {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <line x1="1.05" y1="12" x2="7" y2="12"></line>
+                        <line x1="17.01" y1="12" x2="22.96" y2="12"></line>
+                    </svg>
+                </div>
+                GitFlow
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="docs.html" class="active">Documentation</a>
+                <a href="https://github.com/nicolas-arsenault/gitflow" target="_blank" class="github-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="docs-layout">
+        <!-- Sidebar -->
+        <aside class="docs-sidebar">
+            <div class="sidebar-section">
+                <div class="sidebar-title">Getting Started</div>
+                <ul class="sidebar-nav">
+                    <li><a href="#overview" class="active">Overview</a></li>
+                    <li><a href="#installation">Installation</a></li>
+                    <li><a href="#quick-start">Quick Start</a></li>
+                    <li><a href="#requirements">Requirements</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <div class="sidebar-title">Core Features</div>
+                <ul class="sidebar-nav">
+                    <li><a href="#repository-management">Repository Management</a></li>
+                    <li><a href="#staging">Staging & Commits</a></li>
+                    <li><a href="#branches">Branch Management</a></li>
+                    <li><a href="#diff-system">Diff Visualization</a></li>
+                    <li><a href="#merge-rebase">Merge & Rebase</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <div class="sidebar-title">Advanced</div>
+                <ul class="sidebar-nav">
+                    <li><a href="#remote-operations">Remote Operations</a></li>
+                    <li><a href="#stash">Stash Management</a></li>
+                    <li><a href="#submodules">Submodules</a></li>
+                    <li><a href="#configuration">Configuration</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <div class="sidebar-title">Reference</div>
+                <ul class="sidebar-nav">
+                    <li><a href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
+                    <li><a href="#troubleshooting">Troubleshooting</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Content -->
+        <main class="docs-content">
+            <h1 id="overview">GitFlow Documentation</h1>
+            <p>GitFlow is a free, professional-grade Git GUI for macOS, designed to make Git safe, understandable, and powerful for developers of all skill levels.</p>
+
+            <div class="info-box">
+                <p><strong>Open Source:</strong> GitFlow is completely free and open source under the MIT license. Contribute on <a href="https://github.com/nicolas-arsenault/gitflow" style="color: var(--accent);">GitHub</a>.</p>
+            </div>
+
+            <h2 id="installation">Installation</h2>
+            <p>Download the latest release from GitHub and drag GitFlow to your Applications folder.</p>
+
+            <h3>Download Options</h3>
+            <ul>
+                <li><strong>DMG Installer:</strong> Download the <code>.dmg</code> file from the <a href="https://github.com/nicolas-arsenault/gitflow/releases" style="color: var(--accent);">releases page</a></li>
+                <li><strong>Homebrew:</strong> <code>brew install --cask gitflow</code> (coming soon)</li>
+            </ul>
+
+            <h3>First Launch</h3>
+            <p>On first launch, macOS may show a security warning since the app is not notarized. To open it:</p>
+            <ol>
+                <li>Right-click the app in Finder</li>
+                <li>Select "Open" from the context menu</li>
+                <li>Click "Open" in the dialog</li>
+            </ol>
+
+            <h2 id="quick-start">Quick Start</h2>
+            <p>Get up and running with GitFlow in under a minute.</p>
+
+            <h3>Open a Repository</h3>
+            <p>Use <span class="kbd">Cmd</span> + <span class="kbd">O</span> or drag a folder onto the GitFlow icon to open a repository.</p>
+
+            <h3>Clone a Repository</h3>
+            <ol>
+                <li>Use <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">O</span> to open the clone dialog</li>
+                <li>Enter the repository URL (HTTPS or SSH)</li>
+                <li>Choose a destination folder</li>
+                <li>Click "Clone"</li>
+            </ol>
+
+            <h2 id="requirements">System Requirements</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h4>macOS Version</h4>
+                    <p>macOS 13 (Ventura) or later</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Architecture</h4>
+                    <p>Apple Silicon (M1/M2/M3) and Intel</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Git</h4>
+                    <p>Git 2.30+ (uses system Git by default)</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Storage</h4>
+                    <p>~100 MB for application</p>
+                </div>
+            </div>
+
+            <h2 id="repository-management">Repository Management</h2>
+            <p>GitFlow provides comprehensive repository management capabilities.</p>
+
+            <h3>Repository Overview</h3>
+            <p>When you open a repository, the overview screen displays:</p>
+            <ul>
+                <li><strong>Current branch</strong> or detached HEAD state</li>
+                <li><strong>Working tree status</strong> (clean or dirty)</li>
+                <li><strong>Ahead/behind counts</strong> relative to upstream</li>
+                <li><strong>Active remotes</strong> and their URLs</li>
+                <li><strong>Last fetch timestamp</strong></li>
+            </ul>
+
+            <h3>Recent Repositories</h3>
+            <p>Access recently opened repositories from the welcome screen or via <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">R</span>.</p>
+
+            <h2 id="staging">Staging & Commits</h2>
+            <p>GitFlow offers granular control over what goes into each commit.</p>
+
+            <h3>File States</h3>
+            <p>Files in your working directory can be in these states:</p>
+            <ul>
+                <li><strong>Untracked:</strong> New files not yet added to Git</li>
+                <li><strong>Modified:</strong> Tracked files with changes</li>
+                <li><strong>Deleted:</strong> Tracked files that have been removed</li>
+                <li><strong>Renamed:</strong> Files that have been moved or renamed</li>
+                <li><strong>Copied:</strong> Duplicated files</li>
+            </ul>
+
+            <h3>Partial Staging</h3>
+            <p>Stage exactly what you want to commit:</p>
+            <ul>
+                <li><strong>Stage file:</strong> Click the + icon next to any file</li>
+                <li><strong>Stage hunk:</strong> Click "Stage Hunk" in the diff view</li>
+                <li><strong>Stage lines:</strong> Select specific lines and choose "Stage Selected Lines"</li>
+            </ul>
+
+            <div class="info-box">
+                <p><strong>Tip:</strong> Use partial staging to create focused, atomic commits that are easier to review and revert.</p>
+            </div>
+
+            <h3>Creating Commits</h3>
+            <ol>
+                <li>Stage your changes</li>
+                <li>Write a commit message (follow the <a href="https://www.conventionalcommits.org/" style="color: var(--accent);">Conventional Commits</a> format)</li>
+                <li>Press <span class="kbd">Cmd</span> + <span class="kbd">Enter</span> or click "Commit"</li>
+            </ol>
+
+            <h3>Amending Commits</h3>
+            <p>To modify the most recent commit:</p>
+            <ol>
+                <li>Check "Amend previous commit" below the commit message</li>
+                <li>The previous commit message will be loaded</li>
+                <li>Make changes and commit</li>
+            </ol>
+
+            <div class="warning-box">
+                <p><strong>Warning:</strong> Only amend commits that haven't been pushed. Amending pushed commits requires a force push and can disrupt collaborators.</p>
+            </div>
+
+            <h2 id="branches">Branch Management</h2>
+            <p>Comprehensive branch operations with safety guardrails.</p>
+
+            <h3>Branch Operations</h3>
+            <ul>
+                <li><strong>Create branch:</strong> <span class="kbd">Cmd</span> + <span class="kbd">B</span></li>
+                <li><strong>Switch branch:</strong> Double-click in the branch list or use <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">B</span></li>
+                <li><strong>Rename branch:</strong> Right-click → Rename</li>
+                <li><strong>Delete branch:</strong> Right-click → Delete (with safety confirmation)</li>
+            </ul>
+
+            <h3>Branch Safety</h3>
+            <p>GitFlow prevents accidental data loss:</p>
+            <ul>
+                <li>Confirmation required before deleting unmerged branches</li>
+                <li>Warnings displayed for branches with unpushed commits</li>
+                <li>Current branch is protected from deletion</li>
+            </ul>
+
+            <h3>Comparing Branches</h3>
+            <p>Select two branches and choose "Compare" to see:</p>
+            <ul>
+                <li>Commits unique to each branch</li>
+                <li>Full diff of all changes between branches</li>
+                <li>File-by-file comparison</li>
+            </ul>
+
+            <h2 id="diff-system">Diff Visualization</h2>
+            <p>GitFlow's diff engine is a core feature, designed for professional code review workflows.</p>
+
+            <h3>View Modes</h3>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h4>Unified View</h4>
+                    <p>Additions and deletions inline, optimized for quick scanning.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Split View</h4>
+                    <p>Side-by-side comparison with synchronized scrolling.</p>
+                </div>
+            </div>
+
+            <h3>Word-Level Highlighting</h3>
+            <p>Changes within lines are highlighted at the token level:</p>
+            <ul>
+                <li>Identifiers and keywords</li>
+                <li>String literals</li>
+                <li>Numbers and operators</li>
+                <li>Whitespace changes</li>
+            </ul>
+
+            <h3>Diff Contexts</h3>
+            <p>View diffs for various comparisons:</p>
+            <ul>
+                <li>Working tree vs staged (index)</li>
+                <li>Staged vs last commit (HEAD)</li>
+                <li>Commit vs its parent</li>
+                <li>Any two commits</li>
+                <li>Branch vs branch</li>
+                <li>Local vs remote branch</li>
+            </ul>
+
+            <h3>Syntax Highlighting</h3>
+            <p>Automatic language detection with support for 100+ languages. Colors are designed to work with diff highlighting, not against it.</p>
+
+            <h2 id="merge-rebase">Merge & Rebase</h2>
+
+            <h3>Merge Options</h3>
+            <ul>
+                <li><strong>Fast-forward:</strong> When possible, moves the branch pointer without a merge commit</li>
+                <li><strong>No fast-forward:</strong> Always creates a merge commit</li>
+                <li><strong>Squash:</strong> Combines all commits into one</li>
+            </ul>
+
+            <h3>Interactive Rebase</h3>
+            <p>Visual interface for rewriting history:</p>
+            <ul>
+                <li>Drag to reorder commits</li>
+                <li>Squash multiple commits together</li>
+                <li>Edit commit messages</li>
+                <li>Drop unwanted commits</li>
+            </ul>
+
+            <h3>Conflict Resolution</h3>
+            <p>When conflicts occur, GitFlow displays:</p>
+            <ul>
+                <li>Clear OURS / THEIRS / BASE sections</li>
+                <li>One-click "Accept Ours" or "Accept Theirs"</li>
+                <li>Manual edit mode for complex resolutions</li>
+            </ul>
+
+            <h2 id="remote-operations">Remote Operations</h2>
+
+            <h3>Fetch</h3>
+            <p>Download changes from remote without merging. Use <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">F</span> or enable auto-fetch in preferences.</p>
+
+            <h3>Pull</h3>
+            <p>Fetch and integrate changes:</p>
+            <ul>
+                <li><strong>Pull (merge):</strong> Creates a merge commit if needed</li>
+                <li><strong>Pull (rebase):</strong> Replays your commits on top of upstream</li>
+            </ul>
+
+            <h3>Push</h3>
+            <p>Upload your commits to the remote. GitFlow will warn you about:</p>
+            <ul>
+                <li>Pushing to protected branches</li>
+                <li>Non-fast-forward pushes (requires force push)</li>
+            </ul>
+
+            <div class="warning-box">
+                <p><strong>Force Push:</strong> Requires double confirmation. Use with extreme caution on shared branches.</p>
+            </div>
+
+            <h2 id="stash">Stash Management</h2>
+            <p>Temporarily save changes without committing.</p>
+
+            <h3>Stash Operations</h3>
+            <ul>
+                <li><strong>Create stash:</strong> <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">S</span></li>
+                <li><strong>Apply stash:</strong> Restores changes, keeps stash</li>
+                <li><strong>Pop stash:</strong> Restores changes, removes stash</li>
+                <li><strong>Drop stash:</strong> Deletes stash permanently</li>
+            </ul>
+
+            <h2 id="submodules">Submodules</h2>
+            <p>GitFlow detects and displays submodule status.</p>
+
+            <h3>Submodule Features</h3>
+            <ul>
+                <li>View submodule status in the file list</li>
+                <li>Initialize and update submodules</li>
+                <li>Open submodule as separate repository</li>
+            </ul>
+
+            <h2 id="configuration">Configuration</h2>
+            <p>Access preferences via <span class="kbd">Cmd</span> + <span class="kbd">,</span></p>
+
+            <h3>Available Settings</h3>
+            <ul>
+                <li><strong>Git binary path:</strong> Use a custom Git installation</li>
+                <li><strong>Default pull strategy:</strong> Merge or rebase</li>
+                <li><strong>Auto-fetch interval:</strong> Disable or set frequency</li>
+                <li><strong>Theme:</strong> Light, dark, or system</li>
+                <li><strong>External tools:</strong> Configure diff and merge tools</li>
+            </ul>
+
+            <h2 id="keyboard-shortcuts">Keyboard Shortcuts</h2>
+            <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                <thead>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <th style="text-align: left; padding: 0.75rem; color: var(--text-muted);">Action</th>
+                        <th style="text-align: left; padding: 0.75rem; color: var(--text-muted);">Shortcut</th>
+                    </tr>
+                </thead>
+                <tbody style="color: var(--text-secondary);">
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 0.75rem;">Open repository</td>
+                        <td style="padding: 0.75rem;"><span class="kbd">Cmd</span> + <span class="kbd">O</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 0.75rem;">Clone repository</td>
+                        <td style="padding: 0.75rem;"><span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">O</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 0.75rem;">Create branch</td>
+                        <td style="padding: 0.75rem;"><span class="kbd">Cmd</span> + <span class="kbd">B</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 0.75rem;">Switch branch</td>
+                        <td style="padding: 0.75rem;"><span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">B</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 0.75rem;">Commit</td>
+                        <td style="padding: 0.75rem;"><span class="kbd">Cmd</span> + <span class="kbd">Enter</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 0.75rem;">Fetch</td>
+                        <td style="padding: 0.75rem;"><span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">F</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 0.75rem;">Pull</td>
+                        <td style="padding: 0.75rem;"><span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">P</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 0.75rem;">Push</td>
+                        <td style="padding: 0.75rem;"><span class="kbd">Cmd</span> + <span class="kbd">P</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 0.75rem;">Stash changes</td>
+                        <td style="padding: 0.75rem;"><span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">S</span></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.75rem;">Preferences</td>
+                        <td style="padding: 0.75rem;"><span class="kbd">Cmd</span> + <span class="kbd">,</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="troubleshooting">Troubleshooting</h2>
+
+            <h3>GitFlow can't find Git</h3>
+            <p>Ensure Git is installed and accessible:</p>
+            <pre><code>which git
+git --version</code></pre>
+            <p>If using a custom Git installation, set the path in Preferences → Git → Git Binary Path.</p>
+
+            <h3>Authentication failures</h3>
+            <ul>
+                <li><strong>HTTPS:</strong> Ensure your credentials are stored in Keychain or use a personal access token</li>
+                <li><strong>SSH:</strong> Verify your SSH agent is running: <code>ssh-add -l</code></li>
+            </ul>
+
+            <h3>Repository appears corrupted</h3>
+            <p>Try running Git's built-in repair:</p>
+            <pre><code>git fsck --full
+git gc --prune=now</code></pre>
+
+            <h3>Report Issues</h3>
+            <p>Found a bug? Please report it on our <a href="https://github.com/nicolas-arsenault/gitflow/issues" style="color: var(--accent);">GitHub Issues</a> page with:</p>
+            <ul>
+                <li>macOS version</li>
+                <li>GitFlow version</li>
+                <li>Steps to reproduce</li>
+                <li>Relevant logs (Help → Show Logs)</li>
+            </ul>
+        </main>
+    </div>
+
+    <script>
+        // Simple scroll spy for sidebar
+        const sections = document.querySelectorAll('h1[id], h2[id], h3[id]');
+        const navLinks = document.querySelectorAll('.sidebar-nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
