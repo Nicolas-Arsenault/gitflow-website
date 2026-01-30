@@ -909,43 +909,20 @@
     <section class="features" id="install">
         <div class="section-header">
             <h2>Installation</h2>
-            <p>Get GitFlow up and running in seconds. Choose your preferred method.</p>
+            <p>Get GitFlow up and running in seconds with a single command.</p>
         </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
+        <div style="max-width: 700px; margin: 0 auto;">
+            <div class="feature-card" style="text-align: center;">
+                <div class="feature-icon" style="margin: 0 auto 1.25rem;">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="4 17 10 11 4 5"></polyline>
                         <line x1="12" y1="19" x2="20" y2="19"></line>
                     </svg>
                 </div>
-                <h3>Quick Install</h3>
-                <p>Run this command in Terminal:</p>
+                <h3>One-Line Install</h3>
+                <p>Run this command in Terminal to download and install the latest version:</p>
                 <pre style="background: var(--bg-tertiary); padding: 1rem; border-radius: 8px; margin-top: 1rem; overflow-x: auto;"><code style="color: var(--accent); font-size: 0.85rem;">curl -fsSL https://raw.githubusercontent.com/Nicolas-Arsenault/GitFlow/main/scripts/install.sh | bash</code></pre>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M17 8l4 4-4 4"></path>
-                        <path d="M3 12h18"></path>
-                    </svg>
-                </div>
-                <h3>Homebrew</h3>
-                <p>Install via Homebrew Cask:</p>
-                <pre style="background: var(--bg-tertiary); padding: 1rem; border-radius: 8px; margin-top: 1rem; overflow-x: auto;"><code style="color: var(--accent); font-size: 0.85rem;">brew tap nicolas-arsenault/tap
-brew install --cask gitflow-gui</code></pre>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="7 10 12 15 17 10"></polyline>
-                        <line x1="12" y1="15" x2="12" y2="3"></line>
-                    </svg>
-                </div>
-                <h3>Direct Download</h3>
-                <p>Download the DMG, drag to Applications, then run:</p>
-                <pre style="background: var(--bg-tertiary); padding: 1rem; border-radius: 8px; margin-top: 1rem; overflow-x: auto;"><code style="color: var(--accent); font-size: 0.85rem;">xattr -cr /Applications/GitFlow.app</code></pre>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">The installer automatically downloads the latest release, installs to /Applications, and configures security settings.</p>
             </div>
         </div>
     </section>

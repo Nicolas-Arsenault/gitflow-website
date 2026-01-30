@@ -413,21 +413,24 @@
             </div>
 
             <h2 id="installation">Installation</h2>
-            <p>Download the latest release from GitHub and drag GitFlow to your Applications folder.</p>
+            <p>Install GitFlow with a single command. The installer automatically downloads the latest release and configures everything for you.</p>
 
-            <h3>Download Options</h3>
+            <h3>Quick Install</h3>
+            <p>Run this command in Terminal:</p>
+            <pre><code>curl -fsSL https://raw.githubusercontent.com/Nicolas-Arsenault/GitFlow/main/scripts/install.sh | bash</code></pre>
+
+            <p>The installer will:</p>
             <ul>
-                <li><strong>DMG Installer:</strong> Download the <code>.dmg</code> file from the <a href="https://github.com/Nicolas-Arsenault/GitFlow/releases" style="color: var(--accent);">releases page</a></li>
-                <li><strong>Homebrew:</strong> <code>brew tap nicolas-arsenault/tap && brew install --cask gitflow-gui</code></li>
+                <li>Detect the latest release from GitHub</li>
+                <li>Download the DMG file</li>
+                <li>Install GitFlow to /Applications</li>
+                <li>Remove quarantine attributes (no security warnings)</li>
+                <li>Clean up temporary files</li>
             </ul>
 
-            <h3>First Launch</h3>
-            <p>On first launch, macOS may show a security warning since the app is not notarized. To open it:</p>
-            <ol>
-                <li>Right-click the app in Finder</li>
-                <li>Select "Open" from the context menu</li>
-                <li>Click "Open" in the dialog</li>
-            </ol>
+            <div class="info-box">
+                <p><strong>Tip:</strong> After installation, open GitFlow from Spotlight (<span class="kbd">Cmd</span> + <span class="kbd">Space</span>, type "GitFlow") or from the Applications folder.</p>
+            </div>
 
             <h2 id="quick-start">Quick Start</h2>
             <p>Get up and running with GitFlow in under a minute.</p>
