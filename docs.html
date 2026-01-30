@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentation - GitFlow</title>
-    <meta name="description" content="GitFlow documentation - Learn how to use the free, professional-grade Git GUI for macOS.">
+    <meta name="description" content="GitFlow documentation - Learn how to use the Git GUI with the most advanced diff engine for macOS.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -387,6 +387,7 @@
             <div class="sidebar-section">
                 <div class="sidebar-title">Advanced</div>
                 <ul class="sidebar-nav">
+                    <li><a href="#github-integration">GitHub Integration</a></li>
                     <li><a href="#remote-operations">Remote Operations</a></li>
                     <li><a href="#stash">Stash Management</a></li>
                     <li><a href="#submodules">Submodules</a></li>
@@ -405,7 +406,7 @@
         <!-- Content -->
         <main class="docs-content">
             <h1 id="overview">GitFlow Documentation</h1>
-            <p>GitFlow is a free, professional-grade Git GUI for macOS, designed to make Git safe, understandable, and powerful for developers of all skill levels.</p>
+            <p>GitFlow is a Git GUI for macOS with the most advanced diff visualization engine. Powered by SwiftSyntax for structural code analysis, GitFlow helps you understand code changes at a deeper level than line-by-line diffs.</p>
 
             <div class="info-box">
                 <p><strong>Open Source:</strong> GitFlow is completely free and open source under the MIT license. Contribute on <a href="https://github.com/nicolas-arsenault/gitflow" style="color: var(--accent);">GitHub</a>.</p>
@@ -550,7 +551,33 @@
             </ul>
 
             <h2 id="diff-system">Diff Visualization</h2>
-            <p>GitFlow's diff engine is a core feature, designed for professional code review workflows.</p>
+            <p>GitFlow's diff engine is the core of the application, designed for professional code review workflows with structural code analysis.</p>
+
+            <h3>Structural Diff View</h3>
+            <p>Powered by SwiftSyntax AST parsing, GitFlow can show you what code structures changed:</p>
+            <ul>
+                <li><strong>Added functions:</strong> New functions, methods, and closures</li>
+                <li><strong>Modified functions:</strong> Existing functions that changed</li>
+                <li><strong>Removed functions:</strong> Deleted code structures</li>
+                <li><strong>Class/struct changes:</strong> Type modifications at a glance</li>
+            </ul>
+
+            <h3>Semantic Equivalence Detection</h3>
+            <p>GitFlow can detect when changes don't affect behavior:</p>
+            <ul>
+                <li>Reformatting and whitespace changes</li>
+                <li>Variable renames (when locally scoped)</li>
+                <li>Import reordering</li>
+                <li>Comment-only changes</li>
+            </ul>
+
+            <h3>Change Impact Analysis</h3>
+            <p>See how your changes affect the rest of the codebase:</p>
+            <ul>
+                <li>Functions that call the modified code</li>
+                <li>Types that depend on changed structures</li>
+                <li>Potential breaking changes</li>
+            </ul>
 
             <h3>View Modes</h3>
             <div class="feature-grid">
@@ -561,6 +588,10 @@
                 <div class="feature-item">
                     <h4>Split View</h4>
                     <p>Side-by-side comparison with synchronized scrolling.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Structural View</h4>
+                    <p>See changed functions and types, not just lines.</p>
                 </div>
             </div>
 
@@ -573,19 +604,8 @@
                 <li>Whitespace changes</li>
             </ul>
 
-            <h3>Diff Contexts</h3>
-            <p>View diffs for various comparisons:</p>
-            <ul>
-                <li>Working tree vs staged (index)</li>
-                <li>Staged vs last commit (HEAD)</li>
-                <li>Commit vs its parent</li>
-                <li>Any two commits</li>
-                <li>Branch vs branch</li>
-                <li>Local vs remote branch</li>
-            </ul>
-
             <h3>Syntax Highlighting</h3>
-            <p>Automatic language detection with support for 100+ languages. Colors are designed to work with diff highlighting, not against it.</p>
+            <p>Automatic language detection with support for 200+ languages. Colors are designed to work with diff highlighting, not against it.</p>
 
             <h2 id="merge-rebase">Merge & Rebase</h2>
 
@@ -612,6 +632,39 @@
                 <li>One-click "Accept Ours" or "Accept Theirs"</li>
                 <li>Manual edit mode for complex resolutions</li>
             </ul>
+
+            <h2 id="github-integration">GitHub Integration</h2>
+            <p>GitFlow provides deep integration with GitHub for a complete workflow without leaving the app.</p>
+
+            <h3>Authentication</h3>
+            <p>GitFlow uses OAuth for secure GitHub authentication:</p>
+            <ol>
+                <li>Go to Preferences → GitHub</li>
+                <li>Click "Sign in with GitHub"</li>
+                <li>Authorize GitFlow in your browser</li>
+                <li>You're connected!</li>
+            </ol>
+
+            <h3>Repository Browsing</h3>
+            <p>Once authenticated, you can:</p>
+            <ul>
+                <li>Browse your repositories and organizations</li>
+                <li>Clone repositories directly from the app</li>
+                <li>See repository metadata and descriptions</li>
+            </ul>
+
+            <h3>Pull Requests</h3>
+            <p>Full pull request workflow support:</p>
+            <ul>
+                <li><strong>Create PRs:</strong> Create pull requests from branches with title and description</li>
+                <li><strong>Review PRs:</strong> View diffs, add comments, approve or request changes</li>
+                <li><strong>Merge PRs:</strong> Merge, squash, or rebase directly from GitFlow</li>
+                <li><strong>Close PRs:</strong> Close without merging if needed</li>
+            </ul>
+
+            <div class="info-box">
+                <p><strong>Tip:</strong> Drag a branch to the GitHub sidebar section to quickly create a pull request.</p>
+            </div>
 
             <h2 id="remote-operations">Remote Operations</h2>
 

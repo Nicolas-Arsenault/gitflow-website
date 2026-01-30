@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitFlow - Free Professional Git GUI for macOS</title>
-    <meta name="description" content="A free, professional-grade Git GUI for macOS with full GitTower feature parity. Best-in-class diff visualization, GitHub/GitLab/Bitbucket integration, and 325+ features. Open source and local-first.">
+    <title>GitFlow - Advanced Diff Engine for macOS</title>
+    <meta name="description" content="A free Git GUI for macOS with the most advanced diff visualization engine. Structural diffs, semantic analysis, word-level highlighting, and GitHub integration. Open source and local-first.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -593,9 +593,8 @@
                 GitFlow
             </a>
             <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#services">Integrations</a>
                 <a href="#diff">Diff Engine</a>
+                <a href="#features">Features</a>
                 <a href="#install">Install</a>
                 <a href="docs.html">Docs</a>
                 <a href="https://github.com/nicolas-arsenault/gitflow" target="_blank" class="github-btn">
@@ -611,10 +610,10 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-badge">
-            <span>325+ Features</span> — Full GitTower Parity
+            <span>Advanced Diff Engine</span> — Powered by SwiftSyntax
         </div>
-        <h1>The Git GUI that <span class="gradient-text">professionals</span> deserve</h1>
-        <p>A free, professional-grade Git client for macOS with complete GitTower feature parity. Best-in-class diff visualization, GitHub/GitLab/Bitbucket integration, interactive rebase, and more. Local-first, privacy-focused, and completely open source.</p>
+        <h1>See code changes like <span class="gradient-text">never before</span></h1>
+        <p>A Git GUI for macOS with the most advanced diff visualization engine. Structural diffs that understand your code, semantic equivalence detection, word-level highlighting, and deep GitHub integration. Open source and local-first.</p>
         <div class="hero-buttons" style="flex-direction: column; align-items: center;">
             <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 1rem 1.5rem; margin-bottom: 1rem; max-width: 100%; overflow-x: auto;">
                 <code style="font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--accent); white-space: nowrap;">curl -fsSL https://raw.githubusercontent.com/Nicolas-Arsenault/GitFlow/main/scripts/install.sh | bash</code>
@@ -636,12 +635,12 @@
                 <span class="label">Stars</span>
             </div>
             <div class="hero-stat">
-                <span class="value">325+</span>
-                <span class="label">Features</span>
+                <span class="value">AST</span>
+                <span class="label">Structural Diffs</span>
             </div>
             <div class="hero-stat">
-                <span class="value">6</span>
-                <span class="label">Services</span>
+                <span class="value">GitHub</span>
+                <span class="label">Integration</span>
             </div>
             <div class="hero-stat">
                 <span class="value">MIT</span>
@@ -658,20 +657,41 @@
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="section-header">
-            <h2>Built for real workflows</h2>
-            <p>Everything you need for professional Git management, without the complexity or the price tag.</p>
+            <h2>More than just line-by-line diffs</h2>
+            <p>Traditional diffs show text changes. GitFlow understands code structure.</p>
         </div>
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="12" y1="8" x2="12" y2="12"></line>
-                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
                     </svg>
                 </div>
-                <h3>Safety First</h3>
-                <p>Confirmation dialogs for destructive actions. Clear warnings for unpushed commits. GPG signing and Keychain integration.</p>
+                <h3>Structural Diffs</h3>
+                <p>Powered by SwiftSyntax AST parsing. See functions, classes, and methods that changed—not just lines.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M8 12l2 2 4-4"></path>
+                    </svg>
+                </div>
+                <h3>Semantic Equivalence</h3>
+                <p>Detect when code changes are semantically equivalent—reformatting, reordering, or renaming that doesn't change behavior.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                </div>
+                <h3>Change Impact Analysis</h3>
+                <p>Understand how changes propagate through your codebase. See what callers and dependents are affected.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
@@ -682,41 +702,16 @@
                     </svg>
                 </div>
                 <h3>Native macOS</h3>
-                <p>Built with SwiftUI for macOS 13+. Apple Silicon optimized. Touch Bar, Spotlight, and Handoff support.</p>
+                <p>Built with SwiftUI for macOS 13+. Apple Silicon optimized. Buttery smooth even with massive diffs.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="16 18 22 12 16 6"></polyline>
-                        <polyline points="8 6 2 12 8 18"></polyline>
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                     </svg>
                 </div>
-                <h3>Partial Staging</h3>
-                <p>Stage individual lines, hunks, or entire files. Fine-grained control over what goes into each commit.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="6" y1="3" x2="6" y2="15"></line>
-                        <circle cx="18" cy="6" r="3"></circle>
-                        <circle cx="6" cy="18" r="3"></circle>
-                        <path d="M18 9a9 9 0 0 1-9 9"></path>
-                    </svg>
-                </div>
-                <h3>Branch Management</h3>
-                <p>Visual branch graph. Merge, rebase, cherry-pick with drag-and-drop. Branch review and archiving.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                    </svg>
-                </div>
-                <h3>Interactive Rebase</h3>
-                <p>Visual rebase editor. Reorder, squash, fixup, and drop commits with drag-and-drop simplicity.</p>
+                <h3>GitHub Integration</h3>
+                <p>OAuth login, clone repos, manage pull requests, review code, and merge—all from within GitFlow.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
@@ -724,72 +719,58 @@
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                     </svg>
                 </div>
-                <h3>Offline First</h3>
-                <p>Full local workflow without internet. Remote operations gracefully disabled when offline. Your data stays yours.</p>
+                <h3>Local-First</h3>
+                <p>Your code never leaves your machine. Full offline workflow. Open source and privacy-focused.</p>
             </div>
         </div>
     </section>
 
-    <!-- Service Integrations Section -->
-    <section class="services-section" id="services">
+    <!-- GitHub Integration Section -->
+    <section class="services-section" id="github-integration">
         <div class="section-header">
-            <h2>Connect Your Services</h2>
-            <p>Seamless integration with all major Git hosting platforms. Clone, browse, and manage pull requests directly from GitFlow.</p>
+            <h2>Deep GitHub Integration</h2>
+            <p>Full GitHub workflow support. Clone, browse, review, and merge—without leaving GitFlow.</p>
         </div>
-        <div class="services-grid">
+        <div class="services-grid" style="max-width: 800px; margin: 0 auto; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
             <div class="service-card">
                 <div class="service-icon">
                     <svg width="40" height="40" viewBox="0 0 24 24" fill="var(--text-primary)">
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                     </svg>
                 </div>
-                <h4>GitHub</h4>
-                <p>OAuth login, PRs, reviews</p>
+                <h4>OAuth Authentication</h4>
+                <p>Secure login with GitHub OAuth</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="#FC6D26">
-                        <path d="M23.955 13.587l-1.342-4.135-2.664-8.189a.455.455 0 00-.867 0L16.418 9.45H7.582L4.918 1.263a.455.455 0 00-.867 0L1.386 9.452.044 13.587a.924.924 0 00.331 1.023L12 23.054l11.625-8.443a.92.92 0 00.33-1.024"/>
+                <div class="service-icon" style="font-size: 2rem;">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+                        <circle cx="18" cy="18" r="3"></circle>
+                        <circle cx="6" cy="6" r="3"></circle>
+                        <path d="M6 21V9a9 9 0 0 0 9 9"></path>
                     </svg>
                 </div>
-                <h4>GitLab</h4>
-                <p>Token auth, merge requests</p>
+                <h4>Pull Requests</h4>
+                <p>Create, review, and merge PRs</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="#0052CC">
-                        <path d="M.778 1.213a.768.768 0 00-.768.892l3.263 19.81c.084.5.515.868 1.022.873H19.95a.772.772 0 00.77-.646l3.27-20.03a.768.768 0 00-.768-.893H.778zM14.52 15.53H9.522L8.17 8.466h7.561l-1.211 7.064z"/>
+                <div class="service-icon" style="font-size: 2rem;">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                     </svg>
                 </div>
-                <h4>Bitbucket</h4>
-                <p>App password, workspaces</p>
+                <h4>Code Reviews</h4>
+                <p>Add comments and approve changes</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="#0078D4">
-                        <path d="M0 8.877L2.247 5.91l8.405-3.416V.022l7.37 5.393L2.966 8.338v8.225L0 15.707zm24-4.45v14.651l-5.753 4.9-9.303-3.057v3.056l-5.978-7.416 15.057 1.798V5.415z"/>
+                <div class="service-icon" style="font-size: 2rem;">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
                     </svg>
                 </div>
-                <h4>Azure DevOps</h4>
-                <p>PAT auth, repos & PRs</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="#609926">
-                        <path d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm6.291 12.07c-.232.36-.541.664-.902.895-.361.231-.764.387-1.186.463-.422.076-.857.072-1.277-.012-.42-.084-.818-.248-1.168-.482l-2.758 2.758-2.758-2.758c-.35.234-.748.398-1.168.482-.42.084-.855.088-1.277.012-.422-.076-.825-.232-1.186-.463-.361-.231-.67-.535-.902-.895-.232-.36-.387-.764-.463-1.186-.076-.422-.072-.857.012-1.277.084-.42.248-.818.482-1.168L2.982 5.68l2.758-2.758c.35-.234.748-.398 1.168-.482.42-.084.855-.088 1.277-.012.422.076.825.232 1.186.463.361.231.67.535.902.895.232.36.387.764.463 1.186.076.422.072.857-.012 1.277-.084.42-.248.818-.482 1.168L12 9.175l1.758-1.758c.35-.234.748-.398 1.168-.482.42-.084.855-.088 1.277-.012.422.076.825.232 1.186.463.361.231.67.535.902.895.232.36.387.764.463 1.186.076.422.072.857-.012 1.277-.084.42-.248.818-.482 1.168L15.502 12l1.758 1.758z"/>
-                    </svg>
-                </div>
-                <h4>Gitea</h4>
-                <p>Self-hosted, full support</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="#6cc644">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                    </svg>
-                </div>
-                <h4>Beanstalk</h4>
-                <p>Token auth, full support</p>
+                <h4>Clone Repos</h4>
+                <p>Browse and clone your repositories</p>
             </div>
         </div>
     </section>
@@ -798,11 +779,44 @@
     <section class="diff-section" id="diff">
         <div class="diff-section-content">
             <div>
-                <h2>Diff visualization done right</h2>
+                <h2>The most advanced diff engine for macOS</h2>
                 <p style="color: var(--text-secondary); margin: 1rem 0 2rem;">
-                    Our diff engine is a core UX primitive, not an afterthought. Match the PR-review experience of GitHub and GitLab, right on your desktop.
+                    Powered by SwiftSyntax AST parsing. GitFlow doesn't just show you what lines changed—it shows you what <em>code</em> changed.
                 </p>
                 <ul class="diff-features">
+                    <li>
+                        <div class="check">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Structural Diff View</h4>
+                            <p>See added, modified, and removed functions, classes, and methods—not just lines.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="check">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Semantic Equivalence Detection</h4>
+                            <p>Automatically detect when changes are just reformatting or reordering.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="check">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Change Impact Analysis</h4>
+                            <p>See which callers and dependents are affected by your changes.</p>
+                        </div>
+                    </li>
                     <li>
                         <div class="check">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -822,40 +836,7 @@
                         </div>
                         <div>
                             <h4>Split & Unified Views</h4>
-                            <p>Toggle between side-by-side and inline diff modes with scroll sync.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="check">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Syntax Highlighting</h4>
-                            <p>Language-aware highlighting for 200+ languages that works with your diff.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="check">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Image Diffing</h4>
-                            <p>Visual comparison for PNG, JPG, and other image formats.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="check">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Conflict Resolution</h4>
-                            <p>Three-way merge editor with one-click ours/theirs/both options.</p>
+                            <p>Toggle between side-by-side and inline diff modes with synchronized scrolling.</p>
                         </div>
                     </li>
                 </ul>
@@ -869,29 +850,41 @@
     <!-- Advanced Features Section -->
     <section class="advanced-section">
         <div class="section-header">
-            <h2>Power Features</h2>
-            <p>Everything you need for advanced Git workflows, from interactive rebase to Git LFS.</p>
+            <h2>Everything Else You Need</h2>
+            <p>A complete Git client with all the features you'd expect—and more.</p>
         </div>
         <div class="advanced-grid">
+            <div class="advanced-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Syntax Highlighting (200+ Languages)</span>
+            </div>
+            <div class="advanced-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Image Diffing (PNG, JPG)</span>
+            </div>
+            <div class="advanced-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Three-Way Merge Editor</span>
+            </div>
+            <div class="advanced-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Partial Staging (Lines/Hunks)</span>
+            </div>
             <div class="advanced-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 <span>Interactive Rebase Editor</span>
             </div>
             <div class="advanced-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Drag & Drop Operations</span>
+                <span>Commit Graph Visualization</span>
             </div>
             <div class="advanced-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Stash with Untracked Files</span>
+                <span>Stash Management</span>
             </div>
             <div class="advanced-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Submodule Management</span>
-            </div>
-            <div class="advanced-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Worktrees Support</span>
+                <span>Submodule Support</span>
             </div>
             <div class="advanced-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -899,27 +892,7 @@
             </div>
             <div class="advanced-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Git Flow Workflow</span>
-            </div>
-            <div class="advanced-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Git LFS Support</span>
-            </div>
-            <div class="advanced-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 <span>GPG Commit Signing</span>
-            </div>
-            <div class="advanced-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>SSH Key Management</span>
-            </div>
-            <div class="advanced-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>1Password Integration</span>
-            </div>
-            <div class="advanced-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Commit Templates</span>
             </div>
             <div class="advanced-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -927,15 +900,7 @@
             </div>
             <div class="advanced-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Multi-Window Support</span>
-            </div>
-            <div class="advanced-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 <span>Blame View with Age</span>
-            </div>
-            <div class="advanced-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Patch Create/Apply</span>
             </div>
         </div>
     </section>
@@ -992,7 +957,7 @@ brew install --cask gitflow-gui</code></pre>
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
             </svg>
             <h2>Open Source & Free Forever</h2>
-            <p>GitFlow is completely open source under the MIT license. 325+ features, full GitTower parity, and growing. Star us on GitHub!</p>
+            <p>GitFlow is completely open source under the MIT license. Built with SwiftSyntax for structural code analysis. Star us on GitHub!</p>
             <a href="https://github.com/nicolas-arsenault/gitflow" target="_blank" class="btn btn-primary">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
